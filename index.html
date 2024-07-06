@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二维码生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+        input, select, button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>二维码生成器</h1>
+    <input type="text" id="text" placeholder="输入文字或链接">
+    <select id="color">
+        <option value="black">黑色</option>
+        <option value="blue">蓝色</option>
+        <option value="red">红色</option>
+        <option value="green">绿色</option>
+    </select>
+    <button onclick="generateQRCode()">生成二维码</button>
+    <div id="qrcode"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            const text = document.getElementById('text').value;
+            const color = document.getElementById('color').value;
+            const qrCodeElement = document.getElementById('qrcode');
+
+            qrCodeElement.innerHTML = ''; // 清空之前的二维码
+
+            new QRCode(qrCodeElement, {
+                text: text,
+                width: 256,
+                height: 256,
+                colorDark: color,
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
