@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高级二维码生成器</title>
+    <title>Air QRCode | Secure QR-Code generator</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -68,35 +68,35 @@
 </head>
 <body>
     <div class="container">
-        <h1>高级二维码生成器</h1>
+        <h1>Air QRCode</h1>
         <div class="input-group">
-            <label for="text">文字或链接</label>
-            <input type="text" id="text" placeholder="输入文字或链接">
+            <label for="text">Text or Link</label>
+            <input type="text" id="text" placeholder="Enter text or link">
         </div>
         <div class="input-group">
-            <label for="color">二维码颜色</label>
+            <label for="color">QR-Code Color</label>
             <select id="color">
-                <option value="black">黑色</option>
-                <option value="#0066ff" selected>蓝色</option>
-                <option value="#FF3040">红色</option>
-                <option value="#2EEF66">绿色</option>
+                <option value="black">Black</option>
+                <option value="#0066ff" selected>Blue</option>
+                <option value="#FF3040">Red</option>
+                <option value="#2EEF66">Green</option>
             </select>
         </div>
         <div class="input-group">
-            <label for="bgColor">背景颜色</label>
+            <label for="bgColor">Background Color</label>
             <select id="bgColor">
-                <option value="#ffffff" selected>白色</option>
-                <option value="#f0f0f0">灰色</option>
-                <option value="#fff500">黄色</option>
-                <option value="#ff3600">番茄色</option>
+                <option value="#ffffff" selected>White</option>
+                <option value="#f0f0f0">Grey</option>
+                <option value="#fff500">Yellow</option>
+                <option value="#ff3600">Red</option>
             </select>
         </div>
         <div class="input-group">
-            <label for="size">二维码大小</label>
-            <input type="number" id="size" placeholder="二维码大小" min="200" max="600" value="256">
+            <label for="size">QRCode Size</label>
+            <input type="number" id="size" placeholder="QRCode Size" min="200" max="600" value="256">
         </div>
-        <button onclick="generateQRCode()">生成二维码</button>
-        <button id="downloadBtn" style="display:none; margin-top: 10px;" onclick="downloadQRCode()">下载二维码</button>
+        <button onclick="generateQRCode()">Generate QRCode</button>
+        <button id="downloadBtn" style="display:none; margin-top: 10px;" onclick="downloadQRCode()">Download QRCode</button>
         <div id="qrcode"></div>
     </div>
 
