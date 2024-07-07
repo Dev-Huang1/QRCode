@@ -28,11 +28,11 @@
         }
         button {
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #0066FF;
             color: white;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #0056cc;
         }
     </style>
 </head>
@@ -54,6 +54,7 @@
         </select>
         <input type="number" id="size" placeholder="二维码大小" min="200" max="600" value="256">
         <button onclick="generateQRCode()">生成二维码</button>
+        <button id="downloadBtn" style="display:none;" onclick="downloadQRCode()">下载二维码</button>
         <div id="qrcode"></div>
     </div>
 
@@ -65,6 +66,7 @@
             const bgColor = document.getElementById('bgColor').value;
             const size = document.getElementById('size').value;
             const qrCodeElement = document.getElementById('qrcode');
+            const downloadBtn = document.getElementById('downloadBtn');
 
             qrCodeElement.innerHTML = ''; // 清空之前的二维码
 
@@ -76,6 +78,16 @@
                 colorLight: bgColor,
                 correctLevel: QRCode.CorrectLevel.H
             });
+
+            downloadBtn.style.display = 'inline-block'; // 显示下载按钮
+        }
+
+        function downloadQRCode() {
+            const qrCodeElement = document.getElementById('qrcode').getElementsByTagName('canvas')[0];
+            const downloadLink = document.createElement('a');
+            downloadLink.href = qrCodeElement.toDataURL("image/png");
+            downloadLink.download = 'qrcode.png';
+            downloadLink.click();
         }
     </script>
 </body>
